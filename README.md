@@ -1,16 +1,22 @@
-# new_bright_minds
+# New Bright Minds
 
-A new Flutter project.
+New Bright Minds is a Flutter-based application designed to revolutionize education and professional collaboration.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Project Highlights
 
-A few resources to get you started if this is your first Flutter project:
+- **Business Module**  
+  ![Business Module](assets/images/business_module.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **UX Research**  
+  ![UX Research](assets/images/ux_research.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## About the Project
+
+This project aims to integrate advanced educational tools with a collaborative platform for students and professionals.
+
+For more details about the project:
+- Contact the team or explore the app for more insights.
