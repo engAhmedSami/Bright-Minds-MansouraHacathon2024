@@ -1,8 +1,8 @@
-import 'package:bright_minds/core/utils/app_colors.dart';
-import 'package:bright_minds/core/utils/app_images.dart';
-import 'package:bright_minds/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:new_bright_minds/core/utils/app_colors.dart';
+import 'package:new_bright_minds/core/utils/app_images.dart';
+import 'package:new_bright_minds/core/utils/app_styles.dart';
 
 class SecondaryCustomButton extends StatelessWidget {
   // Constructor with required properties for callback and text

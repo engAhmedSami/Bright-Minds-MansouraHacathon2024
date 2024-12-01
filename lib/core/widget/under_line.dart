@@ -1,5 +1,5 @@
-import 'package:bright_minds/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:new_bright_minds/core/utils/app_colors.dart';
 
 class UnderLine extends StatelessWidget {
   const UnderLine({super.key, required this.child});
