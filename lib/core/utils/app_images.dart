@@ -8,7 +8,7 @@ class Assets {
 
   /// Assets for imagesCamera 1
   /// assets/images/camera 1.svg
-  static const String imagesCamera = "assets/images/camera 1.svg";
+  static const String imagesCamera = "assets/images/camera.svg";
 
   /// Assets for imagesConfirmed
   /// assets/images/Confirmed.svg
@@ -32,6 +32,14 @@ class Assets {
   static const String imagesForgotPassword =
       "assets/images/Forgot_password.svg";
 
+  /// Assets for imagesLogo
+  /// assets/images/logo.svg
+  static const String imagesLogo = "assets/images/logo.svg";
+
+  /// Assets for imagesLogoo
+  /// assets/images/logoo.png
+  static const String imagesLogoo = "assets/images/logoo.png";
+
   /// Assets for imagesLogosFacebook
   /// assets/images/logos_facebook.svg
   static const String imagesLogosFacebook = "assets/images/logos_facebook.svg";
@@ -52,4 +60,8 @@ class Assets {
   /// Assets for imagesOnBordingTwo
   /// assets/images/onBording_two.png
   static const String imagesOnBordingTwo = "assets/images/onBording_two.png";
+
+  /// Assets for imagesSplashLogo
+  /// assets/images/splash_logo.svg
+  static const String imagesSplashLogo = "assets/images/splash_logo.svg";
 }

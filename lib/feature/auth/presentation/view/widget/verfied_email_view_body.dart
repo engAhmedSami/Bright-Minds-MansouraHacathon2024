@@ -6,6 +6,7 @@ import 'package:new_bright_minds/core/helper/failuer_top_snak_bar.dart';
 import 'package:new_bright_minds/core/helper/page_rout_builder.dart';
 import 'package:new_bright_minds/core/helper/scccess_top_snak_bar.dart';
 import 'package:new_bright_minds/core/utils/app_images.dart';
+import 'package:new_bright_minds/core/utils/app_styles.dart';
 import 'package:new_bright_minds/core/widget/custom_botton.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/login_view.dart';
 
@@ -52,8 +53,9 @@ class VerfiedEmailViewBodyState extends State<VerfiedEmailViewBody> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'Please verify your email address.',
+                style: AppStyles.styleMedium16(context),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
