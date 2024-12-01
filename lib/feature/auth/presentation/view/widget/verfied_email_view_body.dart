@@ -28,6 +28,7 @@ class VerfiedEmailViewBodyState extends State<VerfiedEmailViewBody> {
         await user.reload();
         if (user.emailVerified) {
           timer.cancel();
+          if (!mounted) return;
           Navigator.of(context).pushReplacement(
             buildPageRoute(const LoginView()),
           );
@@ -74,6 +75,8 @@ class VerfiedEmailViewBodyState extends State<VerfiedEmailViewBody> {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null && !user.emailVerified) {
       await user.sendEmailVerification();
+
+      // ignore: use_build_context_synchronously
       succesTopSnackBar(context, 'Email verification link has been sent.');
       // ScaffoldMessenger.of(context).showSnackBar(
       //   const SnackBar(

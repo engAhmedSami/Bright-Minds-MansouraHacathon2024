@@ -82,6 +82,8 @@ class _UserInfoState extends State<UserInfo> {
       };
 
       await FirebaseFirestore.instance.collection('users').add(userData);
+      if (!mounted) return;
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text('User information uploaded successfully!')),
