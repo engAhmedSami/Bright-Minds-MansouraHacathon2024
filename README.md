@@ -1,16 +1,16 @@
 # New Bright Minds
 
-New Bright Minds is a Flutter-based application designed to revolutionize education and professional collaboration.
+New Bright Minds is a Flutter-based application designed to revolutionize  professional collaboration.
 
 ---
 
 ## Project Highlights
 
 - **Business Module**  
-  ![Business Module](assets/images/business_module.png)
+![IMG_20241201_181258_707](https://github.com/user-attachments/assets/fd9e14b0-7430-4694-89b0-161416593eca)
 
 - **UX Research**  
-  ![UX Research](assets/images/ux_research.png)
+![WhatsApp Image 2024-12-01 at 18 14 43_b0ee9ca6](https://github.com/user-attachments/assets/d548a607-60a8-42d9-b683-b55608c8c72c)
 
 ---
 
