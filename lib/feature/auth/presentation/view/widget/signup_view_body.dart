@@ -22,7 +22,7 @@ class SignupViewBody extends StatefulWidget {
 class _SignupViewBodyState extends State<SignupViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  late String email, fullName, password, confirmPassword;
+  late String email, name, password, confirmPassword;
   late bool isTermsAccepted = false;
 
   final TextEditingController passwordController = TextEditingController();
@@ -56,7 +56,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               CustomTextFormField(
                 controller: TextEditingController(),
                 onSaved: (value) {
-                  fullName = value!;
+                  name = value!;
                 },
                 hintText: S.of(context).FullName,
                 textInputType: TextInputType.name,
@@ -156,7 +156,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                             .createUserWithEmailAndPassword(
                               email,
                               password,
-                              fullName,
+                              name,
                             );
                       }
                     }
