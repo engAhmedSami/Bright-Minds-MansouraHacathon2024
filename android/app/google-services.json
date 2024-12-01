@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "400468508566",
+    "project_id": "new-bright-minds",
+    "storage_bucket": "new-bright-minds.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400468508566:android:4fb780b97c16fb6d6ba7b7",
+        "android_client_info": {
+          "package_name": "com.example.new_bright_minds"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0LSMU4osLJFnv9rrDxmZWkyEHIUVCKgM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

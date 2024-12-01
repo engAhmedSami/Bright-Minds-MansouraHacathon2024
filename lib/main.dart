@@ -1,12 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_bright_minds/core/helper/shared_preferences_helper.dart';
-import 'package:new_bright_minds/feature/splash/presentation/views/splash_view_body.dart';
+import 'package:new_bright_minds/core/services/custom_block_observer.dart';
+import 'package:new_bright_minds/core/services/get_it_service.dart';
+import 'package:new_bright_minds/feature/home/userinfo.dart';
+import 'package:new_bright_minds/firebase_options.dart';
 import 'package:new_bright_minds/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final savedLocale = await SharedPreferencesHelper.getLanguageCode();
+  Bloc.observer = CustomBlockObserver();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  setupGetit();
+
   runApp(BrightMinds(initialLocale: savedLocale));
 }
 
@@ -68,21 +80,20 @@ class _BrightMindsState extends State<BrightMinds> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: _buildTheme(_locale), // تطبيق الثيم بناءً على اللغة
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      locale: _locale,
-      debugShowCheckedModeBanner: false,
-      home:
-          // UserInfo()
-          SplashView(
-        onChangeLanguage: _changeLanguage,
-      ),
-    );
+        theme: _buildTheme(_locale), // تطبيق الثيم بناءً على اللغة
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        locale: _locale,
+        debugShowCheckedModeBanner: false,
+        home: const UserInfo()
+        //     SplashView(
+        //   onChangeLanguage: _changeLanguage,
+        // ),
+        );
   }
 }

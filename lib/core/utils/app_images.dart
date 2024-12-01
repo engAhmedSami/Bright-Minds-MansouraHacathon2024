@@ -1,10 +1,18 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for imagesArrowRight
   /// assets/images/arrow_right.svg
   static const String imagesArrowRight = "assets/images/arrow_right.svg";
+
+  /// Assets for imagesCamera 1
+  /// assets/images/camera 1.svg
+  static const String imagesCamera = "assets/images/camera 1.svg";
+
+  /// Assets for imagesConfirmed
+  /// assets/images/Confirmed.svg
+  static const String imagesConfirmed = "assets/images/Confirmed.svg";
 
   /// Assets for imagesCurve
   /// assets/images/Curve.svg
@@ -16,7 +24,13 @@ class Assets {
 
   /// Assets for imagesDeviconTwitter
   /// assets/images/devicon_twitter.svg
-  static const String imagesDeviconTwitter = "assets/images/devicon_twitter.svg";
+  static const String imagesDeviconTwitter =
+      "assets/images/devicon_twitter.svg";
+
+  /// Assets for imagesForgotPassword
+  /// assets/images/Forgot_password.svg
+  static const String imagesForgotPassword =
+      "assets/images/Forgot_password.svg";
 
   /// Assets for imagesLogosFacebook
   /// assets/images/logos_facebook.svg
@@ -32,10 +46,10 @@ class Assets {
 
   /// Assets for imagesOnBordingThree
   /// assets/images/onBording_three.png
-  static const String imagesOnBordingThree = "assets/images/onBording_three.png";
+  static const String imagesOnBordingThree =
+      "assets/images/onBording_three.png";
 
   /// Assets for imagesOnBordingTwo
   /// assets/images/onBording_two.png
   static const String imagesOnBordingTwo = "assets/images/onBording_two.png";
 }
-

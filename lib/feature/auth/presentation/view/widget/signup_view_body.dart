@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_bright_minds/constants.dart';
 import 'package:new_bright_minds/core/helper/failuer_top_snak_bar.dart';
 import 'package:new_bright_minds/core/utils/app_styles.dart';
 import 'package:new_bright_minds/core/widget/custom_botton.dart';
 import 'package:new_bright_minds/core/widget/custom_name.dart';
 import 'package:new_bright_minds/core/widget/custom_text_field.dart';
-import 'package:new_bright_minds/feature/auth/controller/auth_controller.dart';
+import 'package:new_bright_minds/feature/auth/presentation/manager/signup_cubit/signup_cubit.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/widget/have_an_account_widget.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/widget/password_field.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/widget/terms_and_condition.dart';
@@ -20,7 +21,6 @@ class SignupViewBody extends StatefulWidget {
 
 class _SignupViewBodyState extends State<SignupViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final AuthController _authController = AuthController();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, fullName, password, confirmPassword;
   late bool isTermsAccepted = false;
@@ -151,12 +151,13 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                         failuerTopSnackBar(
                             context, 'Please accept terms and conditions');
                       } else {
-                        await _authController.signUpUser(
-                          email: email,
-                          password: password,
-                          fullName: fullName,
-                          context: context,
-                        );
+                        context
+                            .read<SignupCubit>()
+                            .createUserWithEmailAndPassword(
+                              email,
+                              password,
+                              fullName,
+                            );
                       }
                     }
                   },

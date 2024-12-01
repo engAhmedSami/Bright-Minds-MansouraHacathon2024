@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_bright_minds/constants.dart';
 import 'package:new_bright_minds/core/helper/page_rout_builder.dart';
 import 'package:new_bright_minds/core/utils/app_images.dart';
@@ -7,7 +8,7 @@ import 'package:new_bright_minds/core/widget/custom_botton.dart';
 import 'package:new_bright_minds/core/widget/custom_name.dart';
 import 'package:new_bright_minds/core/widget/custom_text_field.dart';
 import 'package:new_bright_minds/core/widget/under_line.dart';
-import 'package:new_bright_minds/feature/auth/controller/auth_controller.dart';
+import 'package:new_bright_minds/feature/auth/presentation/manager/signin_cubit/signin_cubit.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/forgot_password_view.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/widget/dont_have_an_account_widget.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/widget/or_divider.dart';
@@ -30,7 +31,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late String email, password;
-  final AuthController _authController = AuthController();
   bool isRemembermeClicked = false;
 
   @override
@@ -111,11 +111,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      _authController.signInUser(
-                        email: email,
-                        password: password,
-                        context: context,
-                      );
+                      context.read<SigninCubit>().signIn(
+                            email,
+                            password,
+                          );
                     }
                   },
                   text: S.of(context).login),
