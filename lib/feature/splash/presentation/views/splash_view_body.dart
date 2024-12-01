@@ -5,6 +5,7 @@ import 'package:new_bright_minds/core/helper/page_rout_builder.dart';
 import 'package:new_bright_minds/core/helper/shared_preferences_helper.dart';
 import 'package:new_bright_minds/core/utils/app_colors.dart';
 import 'package:new_bright_minds/core/utils/app_styles.dart';
+import 'package:new_bright_minds/feature/on_boarding/presentation/views/on_boarding_view_body.dart';
 import 'package:new_bright_minds/generated/l10n.dart';
 
 class SplashView extends StatefulWidget {
