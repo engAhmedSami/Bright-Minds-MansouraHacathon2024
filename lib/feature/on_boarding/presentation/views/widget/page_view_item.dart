@@ -1,5 +1,5 @@
-import 'package:bright_minds/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:new_bright_minds/core/utils/app_styles.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({

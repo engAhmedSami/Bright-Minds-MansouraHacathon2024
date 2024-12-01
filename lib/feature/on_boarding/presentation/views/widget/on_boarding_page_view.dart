@@ -1,7 +1,7 @@
-import 'package:bright_minds/generated/l10n.dart';
-import 'package:bright_minds/core/utils/app_images.dart';
-import 'package:bright_minds/feature/on_boarding/presentation/views/widget/page_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:new_bright_minds/core/utils/app_images.dart';
+import 'package:new_bright_minds/feature/on_boarding/presentation/views/widget/page_view_item.dart';
+import 'package:new_bright_minds/generated/l10n.dart';
 
 class OnBoardingPageView extends StatelessWidget {
   const OnBoardingPageView({super.key, required this.pageController});

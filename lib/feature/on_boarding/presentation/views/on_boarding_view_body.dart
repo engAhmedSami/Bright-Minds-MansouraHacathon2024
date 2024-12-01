@@ -5,6 +5,8 @@ import 'package:new_bright_minds/core/utils/app_colors.dart';
 import 'package:new_bright_minds/core/widget/circular_arrow_button.dart';
 import 'package:new_bright_minds/core/widget/custom_botton.dart';
 import 'package:new_bright_minds/core/widget/secondary_custom_button.dart';
+import 'package:new_bright_minds/feature/auth/presentation/view/login_view.dart';
+import 'package:new_bright_minds/feature/auth/presentation/view/signup_view.dart';
 import 'package:new_bright_minds/feature/on_boarding/presentation/views/widget/on_boarding_page_view.dart';
 import 'package:new_bright_minds/feature/on_boarding/presentation/views/widget/skip_widget.dart';
 import 'package:new_bright_minds/generated/l10n.dart';
