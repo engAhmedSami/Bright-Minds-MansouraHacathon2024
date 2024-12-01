@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_bright_minds/core/helper/shared_preferences_helper.dart';
+import 'package:new_bright_minds/feature/splash/presentation/views/splash_view_body.dart';
 import 'package:new_bright_minds/generated/l10n.dart';
 
 void main() async {
