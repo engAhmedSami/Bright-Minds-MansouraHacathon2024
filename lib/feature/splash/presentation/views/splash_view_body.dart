@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jumping_dot/jumping_dot.dart';
 import 'package:new_bright_minds/core/helper/page_rout_builder.dart';
 import 'package:new_bright_minds/core/helper/shared_preferences_helper.dart';
