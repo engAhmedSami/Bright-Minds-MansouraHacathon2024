@@ -5,9 +5,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_bright_minds/core/helper/shared_preferences_helper.dart';
 import 'package:new_bright_minds/core/services/custom_block_observer.dart';
 import 'package:new_bright_minds/core/services/get_it_service.dart';
+import 'package:new_bright_minds/feature/home/presentation/views/widget/home_screen.dart';
 import 'package:new_bright_minds/feature/splash/presentation/views/splash_view_body.dart';
 import 'package:new_bright_minds/firebase_options.dart';
 import 'package:new_bright_minds/generated/l10n.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +17,11 @@ void main() async {
   Bloc.observer = CustomBlockObserver();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await Supabase.initialize(
+    url: 'https://waocnvdyekhlqdstynrv.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indhb2NudmR5ZWtobHFkc3R5bnJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIyNjc5NzMsImV4cCI6MjA0Nzg0Mzk3M30.huWXrDKeSkgwUjlEALHP7HE4AVDJ0SS6dTFIyCS_jF4',
   );
 
   setupGetit();
@@ -91,6 +98,7 @@ class _BrightMindsState extends State<BrightMinds> {
       locale: _locale,
       debugShowCheckedModeBanner: false,
       home:
+          // const HomeScreen()
           // UserInfo()
           SplashView(
         onChangeLanguage: _changeLanguage,

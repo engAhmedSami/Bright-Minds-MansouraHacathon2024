@@ -2,10 +2,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:new_bright_minds/core/helper/page_rout_builder.dart';
+import 'package:new_bright_minds/feature/home/presentation/views/bottom_navigation_bar.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:new_bright_minds/core/widget/custom_botton.dart';
 import 'package:new_bright_minds/core/widget/custom_name.dart';
 import 'package:new_bright_minds/core/widget/custom_text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 class UserInfo extends StatefulWidget {
   const UserInfo({super.key});
@@ -16,6 +19,8 @@ class UserInfo extends StatefulWidget {
 
 class _UserInfoState extends State<UserInfo> {
   File? profileImage;
+  File? cvFile;
+
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
@@ -31,8 +36,9 @@ class _UserInfoState extends State<UserInfo> {
       TextEditingController();
   final TextEditingController interestsController = TextEditingController();
   final TextEditingController teamsController = TextEditingController();
-  File? cvFile;
 
+  firebase_auth.User? firebaseUser =
+      firebase_auth.FirebaseAuth.instance.currentUser;
   Future<void> _pickImage() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -43,27 +49,55 @@ class _UserInfoState extends State<UserInfo> {
     }
   }
 
+  Future<void> _pickCVFile() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        cvFile = File(pickedFile.path);
+      });
+    }
+  }
+
+  Future<String?> _uploadToSupabase(File file, String folder) async {
+    try {
+      final supabase = Supabase.instance.client;
+      final fileName =
+          '${DateTime.now().millisecondsSinceEpoch}_${file.path.split('/').last}';
+      final filePath = '$folder/$fileName';
+
+      final response =
+          await supabase.storage.from(folder).upload(filePath, file);
+
+      return response;
+    } catch (e) {
+      debugPrint('Error uploading to Supabase: $e');
+      return null;
+    }
+  }
+
   Future<void> _uploadToFirebase() async {
+    if (firebaseUser == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('User is not logged in')),
+      );
+    }
+
     try {
       String? profileImageUrl;
       String? cvFileUrl;
 
       if (profileImage != null) {
-        final storageRef = FirebaseStorage.instance
-            .ref('profileImages/${DateTime.now().toString()}');
-        await storageRef.putFile(profileImage!);
-        profileImageUrl = await storageRef.getDownloadURL();
+        profileImageUrl =
+            await _uploadToSupabase(profileImage!, 'profileImages');
       }
 
       if (cvFile != null) {
-        final cvRef = FirebaseStorage.instance
-            .ref('cvFiles/${DateTime.now().toString()}');
-        await cvRef.putFile(cvFile!);
-        cvFileUrl = await cvRef.getDownloadURL();
+        cvFileUrl = await _uploadToSupabase(cvFile!, 'cvFiles');
       }
 
       final userData = {
-        'full_name': nameController.text,
+        'name': nameController.text,
         'email': emailController.text,
         'phone': phoneController.text,
         'whatsapp': whatsappController.text,
@@ -78,29 +112,28 @@ class _UserInfoState extends State<UserInfo> {
         'teams': teamsController.text,
         'profile_image': profileImageUrl,
         'cv_file': cvFileUrl,
-        'created_at': Timestamp.now(),
+        'updated_at': Timestamp.now(),
       };
 
-      await FirebaseFirestore.instance.collection('users').add(userData);
+      final userDocRef =
+          FirebaseFirestore.instance.collection('users').doc(firebaseUser!.uid);
+
+      await userDocRef.set(userData, SetOptions(merge: true));
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text('User information uploaded successfully!')),
       );
+      Navigator.of(context).pushReplacement(
+        buildPageRoute(
+          const MainScreen(),
+        ),
+      );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: $e')),
       );
-    }
-  }
-
-  Future<void> _pickCVFile() async {
-    final result = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (result != null) {
-      setState(() {
-        cvFile = File(result.path);
-      });
     }
   }
 
@@ -262,7 +295,7 @@ class _UserInfoState extends State<UserInfo> {
               const SizedBox(height: 20),
               CustomButton(
                 onPressed: _uploadToFirebase,
-                text: 'Conform',
+                text: 'Confirm',
               ),
             ],
           ),

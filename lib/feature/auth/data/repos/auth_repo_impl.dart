@@ -25,8 +25,10 @@ class AuthRepoImpl extends AuthRepo {
       var user = await firebaseAuthService.createUserWithEmailAndPassword(
         email: email,
         password: password,
+        name: name,
       );
       var userEntity = UserModel.fromFirebaseUser(user);
+
       await addUserData(user: userEntity);
       return right(userEntity);
     } on CustomExceptions catch (e) {
@@ -120,37 +122,6 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failures, void>> verifyPhoneNumber({
-    required String phoneNumber,
-    required Function(String verificationId) codeSentCallback,
-    required Function(String errorMessage) verificationFailedCallback,
-  }) async {
-    try {
-      await firebaseAuthService.verifyPhoneNumber(
-        phoneNumber: phoneNumber,
-        codeSentCallback: codeSentCallback,
-        verificationFailedCallback: verificationFailedCallback,
-      );
-      return right(
-        null,
-      ); // `unit` is used to represent void in Dartz
-    } catch (e) {
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failures, UserEntity>> signInWithOtp(
-      String verificationId, String otp) async {
-    try {
-      var user = await firebaseAuthService.signInWithOtp(verificationId, otp);
-      return right(UserModel.fromFirebaseUser(user));
-    } catch (e) {
-      return left(
-          ServerFailure('OTP verification failed. Please try again later.'));
-    }
-  }
-
   @override
   Future addUserData({required UserEntity user}) async {
     await databaseService.addData(

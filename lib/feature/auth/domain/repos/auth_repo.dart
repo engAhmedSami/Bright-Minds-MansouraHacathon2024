@@ -13,12 +13,4 @@ abstract class AuthRepo {
 
   Future<Either<Failures, UserEntity>> signInWithFacebook();
   Future<Either<Failures, void>> sendPasswordResetLink(String email);
-  Future<Either<Failures, void>> verifyPhoneNumber({
-    required String phoneNumber,
-    required Function(String verificationId) codeSentCallback,
-    required Function(String errorMessage) verificationFailedCallback,
-  });
-  Future<Either<Failures, UserEntity>> signInWithOtp(
-      String verificationId, String otp);
-  Future addUserData({required UserEntity user});
 }

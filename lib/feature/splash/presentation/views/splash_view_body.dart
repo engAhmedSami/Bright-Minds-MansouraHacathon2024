@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jumping_dot/jumping_dot.dart';
 import 'package:new_bright_minds/core/helper/page_rout_builder.dart';
 import 'package:new_bright_minds/core/helper/shared_preferences_helper.dart';
-import 'package:new_bright_minds/core/utils/app_colors.dart';
 import 'package:new_bright_minds/core/utils/app_images.dart';
 import 'package:new_bright_minds/core/utils/app_styles.dart';
 import 'package:new_bright_minds/feature/auth/presentation/view/login_view.dart';
@@ -91,23 +91,28 @@ class _SplashScreenState extends State<SplashView>
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Center(
-                child: Image.asset(Assets.imagesLogoo),
-
-                //  SvgPicture.asset(
-                //   Assets.imagesLogo,
-                //   height: 300,
-                //   width: 300,
-                // ),
+              flex: 3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(Assets.imagesFLogo),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Bright  Minds',
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
+            // Keep the loading indicator at the bottom
             buildLoadingIndicator(),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),
@@ -130,7 +135,7 @@ class _SplashScreenState extends State<SplashView>
           Transform.translate(
             offset: const Offset(0, 5),
             child: JumpingDots(
-              color: AppColors.orangeColor,
+              color: Colors.white,
               verticalOffset: 6,
               animationDuration: const Duration(milliseconds: 200),
               radius: 6,

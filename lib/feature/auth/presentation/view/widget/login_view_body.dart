@@ -127,7 +127,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SocialLoginButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<SigninCubit>().signInWithGoogle();
+                    },
                     image: Assets.imagesDeviconGoogle,
                   ),
                   SocialLoginButton(

@@ -24,7 +24,8 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, name, password, confirmPassword;
   late bool isTermsAccepted = false;
-
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
@@ -54,7 +55,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               CustomName(text: S.of(context).FullName),
               const SizedBox(height: 8),
               CustomTextFormField(
-                controller: TextEditingController(),
+                controller: nameController,
                 onSaved: (value) {
                   name = value!;
                 },
@@ -71,7 +72,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               CustomName(text: S.of(context).Email),
               const SizedBox(height: 8),
               CustomTextFormField(
-                controller: TextEditingController(),
+                controller: emailController,
                 onSaved: (value) {
                   email = value!;
                 },

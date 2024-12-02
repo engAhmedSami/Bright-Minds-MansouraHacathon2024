@@ -7,7 +7,9 @@ import 'package:new_bright_minds/core/errors/exceptions.dart';
 class FirebaseAuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   Future<User> createUserWithEmailAndPassword(
-      {required String email, required String password}) async {
+      {required String email,
+      required String password,
+      required String name}) async {
     try {
       final credential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
