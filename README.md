@@ -16,6 +16,13 @@ New Bright Minds is a Flutter-based application designed to revolutionize  profe
 - **Bright Minds pdf**
 [Uploading Bright Minds .pdf…]()
 
+
+- **Bright Minds Drive**
+
+- https://drive.google.com/drive/u/0/folders/1qsKEZ75KLghdm-7FfZW0mHG8Ll09aAQ0
+
+
+
 ---
 
 ## About the Project
