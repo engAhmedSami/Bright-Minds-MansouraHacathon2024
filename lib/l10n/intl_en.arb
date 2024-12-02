@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "title1": "Welcome to [App Name]",
+  "title1": "Welcome to Bright Minds",
   "@title1": {
     "description": "Title for the first onboarding page",
     "type": "text"
