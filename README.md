@@ -12,6 +12,9 @@ New Bright Minds is a Flutter-based application designed to revolutionize  profe
 - **UX Research**  
 ![WhatsApp Image 2024-12-01 at 18 14 43_b0ee9ca6](https://github.com/user-attachments/assets/d548a607-60a8-42d9-b683-b55608c8c72c)
 
+- **Bright Minds**
+  
+
 ---
 
 ## About the Project
