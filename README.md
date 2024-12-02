@@ -15,6 +15,7 @@ New Bright Minds is a Flutter-based application designed to revolutionize  profe
 
 - **Bright Minds**
   
+[Uploading Bright Minds .pdf…]()
 
 ---
 
