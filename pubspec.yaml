@@ -39,6 +39,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_facebook_auth: ^7.1.1
+  flutter_launcher_icons: ^0.14.1
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.15
@@ -114,3 +115,9 @@ flutter_assets:
 flutter_intl:
   enabled: true
   output_dir: lib/generated
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 21  
