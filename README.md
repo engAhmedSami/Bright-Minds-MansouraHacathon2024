@@ -6,9 +6,8 @@ New Bright Minds is a Flutter-based application designed to revolutionize  profe
 
 ## Project Highlights
 
-- **Business Mod
+- **Business Module**  
 - ![WhatsApp Image ](https://github.com/user-attachments/assets/14bf867b-c840-4baf-97ab-b93fea7a152f)
-ule**  
 
 
 - **UX Research**  
